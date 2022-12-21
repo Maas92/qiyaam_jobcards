@@ -12,7 +12,7 @@ const cors = require('cors');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
-// const userRouter = require('./routes/userRoutes');
+const userRouter = require('./routes/userRoutes');
 const jobCardRouter = require('./routes/jobCardRoutes');
 const app = express();
 
@@ -86,7 +86,7 @@ app.use((req, res, next) => {
 
 // 3) ROUTES
 app.use('/api/v1/jobCards', jobCardRouter);
-// app.use('/api/v1/users', userRouter);
+app.use('/api/v1/users', userRouter);
 
 // Middleware to handle incorrect routes. Middleware runs in order
 // so if it reaches this point then it means the routes didn't succeed
